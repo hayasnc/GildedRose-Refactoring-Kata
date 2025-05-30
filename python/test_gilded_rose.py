@@ -60,6 +60,20 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(-1, items[0].sell_in)
         self.assertEqual(2, items[0].quality)
 
+    def test_conjured_quality_for_sell_in_greater_than_zero(self):
+        items = [Item("Conjured Mana Cake", 5, 10)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(4, items[0].sell_in)
+        self.assertEqual(8, items[0].quality)
+
+    def test_conjured_quality_for_sell_in_less_than_zero(self):
+        items = [Item("Conjured Mana Cake", 0, 10)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+        self.assertEqual(-1, items[0].sell_in)
+        self.assertEqual(6, items[0].quality)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,6 +2,7 @@ from .aged_brie import AgedBrie
 from .backstage import BackstagePass
 from .sulfuras import Sulfuras
 from .normal import NormalItem
+from .conjured import Conjured
 
 
 def get_updatable_item(item):
@@ -11,5 +12,7 @@ def get_updatable_item(item):
         return BackstagePass(item)
     elif item.name == "Sulfuras, Hand of Ragnaros":
         return Sulfuras(item)
+    elif item.name == "Conjured Mana Cake":
+        return Conjured(item)
     else:
         return NormalItem(item)
